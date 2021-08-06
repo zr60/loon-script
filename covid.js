@@ -5,7 +5,7 @@ var default_value = {
     "data": {
         "resultList": [
             {
-                "id": 4114871,
+                "id": 4133335,
                 "idCard": "xxxxxxxxxxxxxxxxxx",
                 "checkResult": "阴性",
                 "checkOrgName": "广州华银医学检验中心有限公司",
@@ -33,11 +33,14 @@ function getYesterday(date) {
 
 
 function Change_ResponseBody() {
-    let obj = JSON.parse($response.body)
     let item = default_value
-    if (obj.code == 0 && obj.data.resultList.length >= 1) {
-        obj.data.resultList = Array(obj.data.resultList.shift())
-        item = obj
+    let obj = null
+    if ($response.status == 200) {
+        obj = JSON.parse($response.body)
+        if (obj.code == 0 && obj.data.resultList.length >= 1) {
+            obj.data.resultList = Array(obj.data.resultList.shift())
+            item = obj
+        }
     }
     item.data.resultList[0].reportTime = getYesterday(item.data.resultList[0].reportTime)
     item.data.resultList[0].createTime = getYesterday(item.data.resultList[0].createTime)
