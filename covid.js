@@ -38,7 +38,7 @@ function Change_ResponseBody() {
     if ($response.status == 200) {
         obj = JSON.parse($response.body)
         if (obj.code == 0 && obj.data.resultList.length >= 1) {
-            obj.data.resultList = Array(obj.data.resultList.shift())
+            // obj.data.resultList = Array(obj.data.resultList.shift())
             item = obj
         }
     }
