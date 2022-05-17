@@ -1,3 +1,4 @@
+// match check-report.z.digitalcnzz.com:5443\/hs-check-result\/check\/result\/queryWithToken
 
 var default_value = {
     "code": 0,
@@ -51,5 +52,3 @@ function Change_ResponseBody() {
 }
 
 Change_ResponseBody()
-
-
